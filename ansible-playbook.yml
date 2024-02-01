@@ -3,12 +3,6 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: Log into Docker registry
-      docker_login:
-      registry_url: https://hub.docker.com/repository/docker/imas10/coming-soon-jenkins/general
-      username: imas10
-      password: azerty12345
-  
     - name: stop current running container
       command: docker stop web-container
       ignore_errors: yes
