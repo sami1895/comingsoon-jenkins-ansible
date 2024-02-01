@@ -16,10 +16,7 @@
       ignore_errors: yes
 
     - name: build docker image using the Dockerfile
-      command: docker build -t imas10/coming-soon-jenkins .
-
-    - name: Docker Tag
-      command: docker tag imas10/coming-soon-jenkins:0.0.1 imas10/coming-soon-jenkins
+      command: docker build -t imas10/coming-soon-jenkins:0.0.0.1 .
     
     - name: Push Image to dockerhub
       command: docker push imas10/coming-soon-jenkins
