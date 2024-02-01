@@ -18,6 +18,9 @@
     - name: build docker image using the Dockerfile
       command: docker build -t imas10/coming-soon-jenkins .
 
+    - name: Docker Tag
+      command: docker tag coming-soon-jenkins imas10/coming-soon-jenkins
+    
     - name: Push Image to dockerhub
       command: docker push imas10/coming-soon-jenkins
 
