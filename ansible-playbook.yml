@@ -22,7 +22,6 @@
       docker_login:
         username: imas10
         password: azerty12345
-      register: login_result
     
     - name: tag the docker image
       command: docker tag comingsoon-pages imas10/comingsoon-pages:0.0.01
