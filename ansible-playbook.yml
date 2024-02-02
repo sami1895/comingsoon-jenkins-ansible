@@ -1,8 +1,12 @@
 ---
 - name: "Build a container with ansible"
-  hosts: all
+  hosts: localhost
   connection: local
   tasks:
+    - name: Log into DockerHub
+    community.docker.docker_login:
+      username: imas10
+      password: azerty12345
     - name: stop current running container
       command: docker stop web-container
       ignore_errors: yes
@@ -12,18 +16,14 @@
       ignore_errors: yes
 
     - name: remove comingsoon-image
-      command: docker rmi coming-soon-jenkins
+      command: docker rmi comingsoon-pages
       ignore_errors: yes
 
     - name: build docker image using the Dockerfile
-      command: docker build -t coming-soon-jenkins .
-    
-    - name: adding tag img
-      command: docker tag coming-soon-jenkins imas10/coming-soon-jenkins
-    
+      command: docker build -t comingsoon-pages .
+
     - name: Push Image to dockerhub
-      command: docker push imas10/coming-soon-jenkins
+      command: docker push imas10/comingsoon-pages
 
     - name: run container
-      command: docker run -d --name web-container -p 5000:80 imas10/coming-soon-jenkins
-
+      command: docker run -d --name web-container -p 5000:80 comingsoon-pages
