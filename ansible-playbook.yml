@@ -18,6 +18,9 @@
     - name: build docker image using the Dockerfile
       command: docker build -t comingsoon-pages .
  
+    - name: tag the docker image
+      command: docker tag comingsoon-pages imas10/comingsoon-pages:0.0.01
+    
     - name: Push Image to dockerhub
       command: docker push imas10/comingsoon-pages
     
