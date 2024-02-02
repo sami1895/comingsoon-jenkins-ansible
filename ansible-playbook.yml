@@ -7,6 +7,7 @@
     community.docker.docker_login:
       username: imas10
       password: azerty12345
+   
     - name: stop current running container
       command: docker stop web-container
       ignore_errors: yes
