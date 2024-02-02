@@ -1,7 +1,7 @@
 ---
 - name: "Build a container with ansible"
   hosts: localhost
-  connection: local
+  become: true
   tasks:
     - name: Log into DockerHub
   docker_login:
