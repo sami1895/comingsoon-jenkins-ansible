@@ -17,6 +17,13 @@
 
     - name: build docker image using the Dockerfile
       command: docker build -t comingsoon-pages .
+
+    - name: Log in to Docker Hub
+      docker_login:
+        username: imas10
+        password: azerty12345
+        email: kokou1001@outlook.fr
+      register: login_result
  
     - name: tag the docker image
       command: docker tag comingsoon-pages imas10/comingsoon-pages:0.0.01
