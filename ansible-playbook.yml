@@ -3,6 +3,11 @@
   hosts: localhost
   connection: local
   tasks:
+    - name: Log into DockerHub
+      docker_login:
+        username: imas10
+        password: azerty12345
+    
     - name: stop current running container
       command: docker stop web-container
       ignore_errors: yes
@@ -18,5 +23,8 @@
     - name: build docker image using the Dockerfile
       command: docker build -t comingsoon-pages .
  
+    - name: Push Image to dockerhub
+      command: docker push imas10/comingsoon-pages
+    
     - name: run container
       command: docker run -d --name web-container -p 5000:80 comingsoon-pages
