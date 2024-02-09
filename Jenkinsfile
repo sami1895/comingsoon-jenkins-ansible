@@ -8,7 +8,7 @@ pipeline {
         stage('Docker Login') {
             steps {
                 // Add --password-stdin to run docker login command non-interactively
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo - S docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
         stage('Build & push Dockerfile') {
